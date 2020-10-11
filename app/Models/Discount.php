@@ -9,4 +9,8 @@ class Discount extends Model
 {
     use HasFactory;
     protected $fillable = ['name','amount','status','from_date','to_date'];
+
+    public function product(){
+        return $this->hasMany('App\Models\Product');
+    }
 }

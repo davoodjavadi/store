@@ -58,4 +58,12 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function comment(){
+        return $this->hasMany('App\Models\Comment');
+    }
+
+    public function product(){
+        return $this->belongsToMany('App\Models\Product');
+    }
 }

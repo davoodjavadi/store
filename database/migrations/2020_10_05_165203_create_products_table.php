@@ -19,9 +19,9 @@ class CreateProductsTable extends Migration
             $table->text('detail');
             $table->integer('price')->unsgined();
             $table->string('image');
-            $table->string('category');
+            $table->foreignId('category_id')->unsgined();
             $table->string('status')->default('be');
-            $table->string('discount');
+            $table->integer('discount_id')->unsgined();
             $table->foreignId('user_id')->nullable();
             $table->timestamps();
         });

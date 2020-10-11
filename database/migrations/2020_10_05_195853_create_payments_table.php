@@ -21,6 +21,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('product_price');
             $table->string('number_product');
             $table->string('discount_id')->default(0);
+            $table->string('status');
             $table->integer('total_price');
             $table->timestamps();
         });

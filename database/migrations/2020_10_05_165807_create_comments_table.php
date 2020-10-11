@@ -19,6 +19,7 @@ class CreateCommentsTable extends Migration
             $table->text('comment');
             $table->string('user_name');
             $table->foreignId('user_id');
+            $table->foreignId('product_id');
             $table->string('status')->default('inActive');
             $table->timestamps();
         });

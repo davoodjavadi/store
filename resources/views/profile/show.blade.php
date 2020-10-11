@@ -2,6 +2,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Profile') }}
+            <a href="{{ route('add') }}" class="ml-4 text-sm text-gray-700 underline">Add Product</a>
         </h2>
     </x-slot>
 
