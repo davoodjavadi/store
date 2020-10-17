@@ -25,3 +25,5 @@ Route::get('/addProduct',[AddProductController::class,'index'])->name('add');
 Route::post('/addProduct/store',[AddProductController::class,'store']);
 Route::get('/',[ProductController::class,'index']);
 Route::get('product/{id}',[ProductController::class,'show']);
+Route::get('buy/{id}',[ProductController::class,'buyForm']);
+Route::post('postZarin',[ProductController::class,'postZarin']);

@@ -63,7 +63,15 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Comment');
     }
 
-    public function product(){
-        return $this->belongsToMany('App\Models\Product');
+    public function cart(){
+        return $this->hasOne('App\Models\Cart');
+    }
+
+    public function discount(){
+        return $this->blongsTo('App\Models\Discount');
+    }
+
+    public function payment(){
+        return $this->hasMany('App\models\Payment');
     }
 }

@@ -15,13 +15,9 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('product_name');
-            $table->foreign('product_id')->constrained();
-            $table->foreign('user_id')->constrained();
-            $table->integer('product_price');
-            $table->string('number_product');
-            $table->string('discount_id')->default(0);
-            $table->string('status');
+            $table->foreign('discount_id')->constrained()->default(0);
+            $table->string('status')->default('noPay');
+            $table->foreign('cart_id')->constrained();
             $table->integer('total_price');
             $table->timestamps();
         });

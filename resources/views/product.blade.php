@@ -13,7 +13,7 @@
             </div>
             <div>
                 <p> دسته محصول :
-                <span class="size-20">{{ $product->category_id }}</span>
+                <span class="size-20">{{ $cat->name }}</span>
                 </p>
             </div>
             <div>
@@ -31,7 +31,7 @@
                     <span class="size-20"> {{ $product->price }} </span>
                 </p>
             </div>
-            <button type="submit" class="btn btn-danger">خرید</button>
+            <a href="{{ url('buy').'/'.$product->id }}"><button type="submit" class="btn btn-danger">خرید</button></a>
         </div>
         <div class="col-md-4">
             <img src="{{ asset($product->image) }}" class="img-responsive img-thumbnail" style="width:100%" alt="Image">

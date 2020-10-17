@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','detail','price','image','category','status','discount','user_id'];
+    protected $fillable = ['name','detail','price','image','category_id','status','discount_id','user_id'];
 
     public function comment(){
         return $this->hasMany('App\Models\Comment');
@@ -19,14 +19,14 @@ class Product extends Model
     }
 
     public function category(){
-        return $this->belongsTo('App\Models\Category');
-    }
-
-    public function user(){
-        return $this->hasMany('App\Models\User');
+        return $this->hasMany('App\Models\Category');
     }
 
     public function payment(){
-        return $this->blongsTo('App\Models\Payment');
+        return $this->hasMany('App\Models\Payment');
+    }
+
+    public function cart(){
+        return $this->blongsToMany('App\Models\Cart');
     }
 }

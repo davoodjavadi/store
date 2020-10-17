@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductUserTable extends Migration
+class CreateCartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateProductUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_user', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('product_id');
-            $table->integer('user_id');
+        Schema::create('carts', function (Blueprint $table) {
+            $table->id();
+            $table->foreign('product_id')->constrained();
+            $table->foreign('user_id')->constrained();
+            $table->integer('status')->default(0);
+            $table->unique('code_cart');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateProductUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_user');
+        Schema::dropIfExists('carts');
     }
 }

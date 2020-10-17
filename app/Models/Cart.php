@@ -5,25 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Payment extends Model
+class Cart extends Model
 {
     use HasFactory;
-    protected $fillable = ['discount_id','status','cart_id','total_price'];
+    protected $fillable = ['product_id','user_id','status','code_cart'];
 
-    public function product(){
-        return $this->blongsToMany('App\Models\Product');
-    }
-
-    public  function cart(){
-        return $this->hasOne('App\Models\Cart');
+    public function payment(){
+        return $this->blongsTo('App\Models\Payment');
     }
 
     public function user(){
         return $this->blongsTo('App\Models\User');
     }
 
+    public function product(){
+        return $this->hasMany('App\Models\Product');
+    }
+
     public function discount(){
         return $this->blongsTo('App\Models\Discount');
     }
-
 }

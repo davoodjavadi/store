@@ -2,6 +2,8 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
+            |
+            <a href="{{ url('/') }}" style="margin-left: 20px;">Home</a>
         </h2>
     </x-slot>
 

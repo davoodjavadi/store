@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Discount;
 use App\Models\Product;
-
+use App\Lib\SoapClient;
 class ProductController extends Controller
 {
     //
@@ -25,8 +25,21 @@ class ProductController extends Controller
     public function show($id)
     {
       $product = Product::find($id);
-      return view('product',compact('product'));
+      $cat = $product->category()->first();
+      return view('product',compact('product','cat'));
     }
+
+    public function buyForm(Request $request,$id){
+        $product = Product::find($id);
+        return view('buy',compact('product'));
+    }
+
+    Public function postZarin(Request $request){
+
+        $order = new SoapClient();
+        $res = $order->pay($request->price,"javadi.davood@gmail.com","09123456789");
+        return redirect('https://www.sendbox.zarinpal.com/pg/StartPay/' . $res);
+           }
 
     public function update(Request $request, Product $product)
     {

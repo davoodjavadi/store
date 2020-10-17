@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->text('detail');
             $table->integer('price')->unsgined();
             $table->string('image');
-            $table->foreignId('category_id')->unsgined();
+            $table->foreignId('category_id')->constrained();
             $table->string('status')->default('be');
             $table->integer('discount_id')->unsgined();
             $table->foreignId('user_id')->nullable();
